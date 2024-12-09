@@ -2,11 +2,13 @@
 pitchpredict/src/analyze_pitch_data.py
 Created by Addison Kline (akline@baseball-analytica.com)
 """
+# external imports
 import pandas as pd
 from collections import Counter
+# internal imports
 from pitchpredict.logger_config import get_logger
 
-logger = get_logger(__name__)
+#logger = get_logger(__name__)
 
 def digest_pitch_data(pitches: pd.DataFrame) -> pd.DataFrame:
     """
@@ -18,7 +20,7 @@ def digest_pitch_data(pitches: pd.DataFrame) -> pd.DataFrame:
     Returns:
         DataFrame: The DataFrame of statistics related to the most likely pitches.
     """
-    logger.info('Attempting to digest pitch data')
+    #logger.info('Attempting to digest pitch data')
 
     df = pd.DataFrame({
         "pitch_type": [],
@@ -57,7 +59,7 @@ def digest_pitch_data(pitches: pd.DataFrame) -> pd.DataFrame:
     
     df = df.sort_values(by='frequency', ascending=False)
 
-    logger.info('Pitch data digested successfully')
+    #logger.info('Pitch data digested successfully')
     return df
 
 def digest_pitch_event_data(pitches: pd.DataFrame) -> pd.DataFrame:
@@ -70,7 +72,7 @@ def digest_pitch_event_data(pitches: pd.DataFrame) -> pd.DataFrame:
     Returns:
         DataFrame: The DataFrame of statistics related to the most likely events.
     """
-    logger.info('Attempting to digest pitch event data')
+    #logger.info('Attempting to digest pitch event data')
 
     df = pd.DataFrame({
         "event": [],
@@ -115,7 +117,7 @@ def digest_pitch_event_data(pitches: pd.DataFrame) -> pd.DataFrame:
 
     df = df.sort_values(by='frequency', ascending=False)
 
-    logger.info('Pitch event data digested successfully')
+    #logger.info('Pitch event data digested successfully')
     return df
 
 def digest_pitch_batted_ball_data(pitches: pd.DataFrame) -> tuple[pd.DataFrame, int]:
@@ -129,7 +131,7 @@ def digest_pitch_batted_ball_data(pitches: pd.DataFrame) -> tuple[pd.DataFrame, 
         DataFrame: The DataFrame of statistics related to batted ball data.
         int: The number of batted balls being sampled.
     """
-    logger.info('Attempting to digest batted ball data (aggregated)')
+    #logger.info('Attempting to digest batted ball data (aggregated)')
 
     bbe = pitches.loc[pitches['description'] == 'hit_into_play']
 
@@ -141,7 +143,7 @@ def digest_pitch_batted_ball_data(pitches: pd.DataFrame) -> tuple[pd.DataFrame, 
     babip = bbe['babip_value'].mean()
     iso = bbe['iso_value'].mean()
 
-    logger.info('Batted ball data (aggregated) digested successfully')
+    #logger.info('Batted ball data (aggregated) digested successfully')
     return pd.DataFrame({
         "ev": [ev],
         "la": [la],
@@ -163,7 +165,7 @@ def digest_pitch_batted_ball_data_split(pitches: pd.DataFrame) -> tuple[pd.DataF
         DataFrame: The DataFrame of statistics related to batted ball data.
         int: The number of batted balls in this sample.
     """
-    logger.info('Attempting to digest batted ball data (split)')
+    #logger.info('Attempting to digest batted ball data (split)')
 
     bbe = pitches.loc[pitches['description'] == 'hit_into_play']
 
@@ -198,5 +200,5 @@ def digest_pitch_batted_ball_data_split(pitches: pd.DataFrame) -> tuple[pd.DataF
 
     df = df.sort_values(by='frequency', ascending=False)
 
-    logger.info('Batted ball data (split) digested successfully')
+    #logger.info('Batted ball data (split) digested successfully')
     return df, bbe.__len__()

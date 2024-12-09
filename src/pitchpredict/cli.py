@@ -23,7 +23,7 @@ from pitchpredict.analyze_pitch_data import (
 from pitchpredict.models.pitch import Pitch
 
 # logger stuff
-logger = get_logger(__name__)
+#logger = get_logger(__name__)
 
 # config stuff
 _config = pd.read_json('config.json').iloc[0]
@@ -117,7 +117,7 @@ def main() -> None:
     with open('version', 'r') as f:
         version = f.read().strip()
 
-    logger.info('PitchPredict started successfully')
+    #logger.info('PitchPredict started successfully')
 
     # refactor config file
     config = generate_config_object_from_series(_config)
@@ -155,7 +155,7 @@ def main() -> None:
         score_fld=int(score_fld),
         game_year=int(game_year)
     )
-    logger.info(f'Context with pitcher_id={pitcher_id}, batter_id={batter_id}, balls={num_balls}, strikes={num_strikes}, score_bat={score_bat}, score_fld={score_fld}, game_year={game_year} created successfully')
+    #logger.info(f'Context with pitcher_id={pitcher_id}, batter_id={batter_id}, balls={num_balls}, strikes={num_strikes}, score_bat={score_bat}, score_fld={score_fld}, game_year={game_year} created successfully')
 
     # get all pitches from this pitcher
     pitches = get_pitches_from_pitcher(pitcher_id=pitcher_id, config=config)
@@ -163,7 +163,7 @@ def main() -> None:
     # get pitcher's most relevant pitches to the given context
     most_similar_pitches = get_most_similar_pitches(pitches=pitches, this_pitch=context, config=config)
 
-    logger.info('Attempting to digest and print pitch data')
+    #logger.info('Attempting to digest and print pitch data')
 
     # print basic pitch data
     pitch_data = digest_pitch_data(pitches=most_similar_pitches)
@@ -193,12 +193,12 @@ def main() -> None:
     print(80 * '-')
     print(bbe_data_split)
 
-    logger.info('Pitch data digested and printed successfully')
+    #logger.info('Pitch data digested and printed successfully')
 
     # generate output files, if desired
     output = _config.get('generate_output_files')
     if output:
-        logger.info('Attempting to generate output files')
+        #logger.info('Attempting to generate output files')
 
         timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
         pitch_data.to_csv(f'outputs/data_pitch_{timestamp}.csv')
@@ -210,11 +210,11 @@ def main() -> None:
         print(f'Generated output files with timestamp = {timestamp}')
         print(80 * '-')
 
-        logger.info('Output files generated successfully')
+        #logger.info('Output files generated successfully')
 
     print(80 * '=')
 
-    logger.info('PitchPredict finished executing successfully')
+    #logger.info('PitchPredict finished executing successfully')
 
 if __name__ == "__main__":
     main()

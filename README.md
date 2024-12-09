@@ -15,10 +15,33 @@ Cutting-edge MLB pitch-predicting software utilizing the latest Statcast data. O
 5. You're all set!
 
 ## Using the API
-To use the `PitchPredict` API in your project, first ensure it is installed correctly. More info coming soon!
+To use the `PitchPredict` API in your project, first ensure it is installed correctly. Then, run code like below:
+```python
+from pitchpredict import PitchPredict
+
+CONFIG_1 = {
+    "start_date": "2015-04-01",
+    "end_date": "today",
+    "fuzzy_player_lookup": True,
+    "pitch_sample_pctg": 0.005,
+}
+
+NAME_PITCHER = "Clayton Kershaw"
+NAME_BATTER = "Aaron Judge"
+BALLS = 0
+STRIKES = 0
+SCORE_BAT = 0
+SCORE_FLD = 0
+GAME_YEAR = 2024
+
+client = PitchPredict(config=CONFIG_1)
+
+response = client.predict(NAME_PITCHER, NAME_BATTER, BALLS, STRIKES, SCORE_BAT, SCORE_FLD, GAME_YEAR)
+print(response.basic_pitch_data)
+```
 
 ## Running the CLI
-To run `PitchPredict`, make sure the software is install correctly by following the directions above. Then, run the command `python -m pitchpredict.cli` and follow the prompts. For every successful query, resulting data is a) printed to the console and b) written to files in the designated `outputs` folder. For debugging purposes, `PitchPredict` generates log files in the `logs` folder. These may be helpful if you run into any issues.
+To run `PitchPredict`, make sure the software is install correctly by following the directions above. Then, in the root directory, run the command `pitchpredict` and follow the prompts. For every successful query, resulting data is a) printed to the console and b) written to files in the designated `outputs` folder. ~~For debugging purposes, `PitchPredict` generates log files in the `logs` folder. These may be helpful if you run into any issues.~~ Log files are temporarily out of order--they should be back up and running in future versions.
 
 ## Methodology
 Broadly speaking, `PitchPredict` estimates the most likely outcomes for a pitch in the given context by doing the following:

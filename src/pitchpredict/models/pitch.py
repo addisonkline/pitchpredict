@@ -2,6 +2,7 @@
 pitchpredict/src/models/pitch.py
 Created by Addison Kline (akline@baseball-analytica.com) in October 2024
 """
+# external imports
 from pydantic import BaseModel
 
 class Pitch(BaseModel):

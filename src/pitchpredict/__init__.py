@@ -1,1 +1,1 @@
-from .api import PitchPredict
+from pitchpredict.api import PitchPredict

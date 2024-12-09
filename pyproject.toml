@@ -6,9 +6,12 @@ build-backend = "setuptools.build_meta"
 package-dir = {"" = "src"}
 packages = ["pitchpredict"]
 
+[project.entry-points."console_scripts"]
+pitchpredict = "pitchpredict.cli:main"
+
 [project]
 name = "pitchpredict"
-version = "0.2.1"
+version = "0.2.2"
 description = "An open source utility for predicting what an MLB pitcher will throw in a given context"
 readme = "README.md"
 license = { file = "LICENSE" }

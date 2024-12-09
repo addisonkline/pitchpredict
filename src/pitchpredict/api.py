@@ -1,5 +1,5 @@
 """
-pitchpredict/src/_client.py
+pitchpredict/src/api.py
 Created by Addison Kline (akline@baseball-analytica.com) in December 2024
 """
 # external imports

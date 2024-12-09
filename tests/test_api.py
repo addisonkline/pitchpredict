@@ -8,8 +8,8 @@ from datetime import (
     timedelta
 )
 # internal imports
-from pitchpredict.api import PitchPredict
-from pitchpredict.models.pitch import Pitch
+from src.pitchpredict.api import PitchPredict
+from src.pitchpredict.models.pitch import Pitch
 
 # module constants
 CONFIG_1 = {

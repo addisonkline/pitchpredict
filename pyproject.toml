@@ -8,7 +8,7 @@ packages = ["pitchpredict"]
 
 [project]
 name = "pitchpredict"
-version = "0.2"
+version = "0.2.1"
 description = "An open source utility for predicting what an MLB pitcher will throw in a given context"
 readme = "README.md"
 license = { file = "LICENSE" }

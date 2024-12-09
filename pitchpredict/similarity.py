@@ -4,8 +4,8 @@ Created by Addison Kline (akline@baseball-analytica.com) in October 2024
 """
 import pandas as pd
 import numpy as np
-from src.logger_config import get_logger
-from src.models.pitch import Pitch
+from pitchpredict.logger_config import get_logger
+from pitchpredict.models.pitch import Pitch
 
 logger = get_logger(__name__)
 

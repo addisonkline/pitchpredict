@@ -1,2 +1,2 @@
-pybaseball
-pydantic
+pybaseball>=2.2.6
+pydantic>=2.9.2

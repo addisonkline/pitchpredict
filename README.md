@@ -3,15 +3,22 @@ Cutting-edge MLB pitch-predicting software utilizing the latest Statcast data. O
 
 [baseball-analytica.com]: https://baseball-analytica.com
 
-## Installation
+## Installation (Package)
+1. Ensure you have Python v3.11 or above
+2. Run the command `pip install pitchpredict`
+
+## Installation (CLI)
 1. Clone the repository
 2. Create a Python v3.11+ virtual environment: `python3.11 -m venv {your venv name here}`
 3. Activate your virtual environment: `source {your venv name here}/bin/activate`
 4. Install the requirements: `pip intall -r requirements.txt`
 5. You're all set!
 
-## Running
-To run `PitchPredict`, make sure the software is install correctly by following the directions above. Then, run the command `python -m src.main` and follow the prompts. For every successful query, resulting data is a) printed to the console and b) written to files in the designated `outputs` folder. For debugging purposes, `PitchPredict` generates log files in the `logs` folder. These may be helpful if you run into any issues.
+## Using the API
+To use the `PitchPredict` API in your project, first ensure it is installed correctly. More info coming soon!
+
+## Running the CLI
+To run `PitchPredict`, make sure the software is install correctly by following the directions above. Then, run the command `python -m pitchpredict.cli` and follow the prompts. For every successful query, resulting data is a) printed to the console and b) written to files in the designated `outputs` folder. For debugging purposes, `PitchPredict` generates log files in the `logs` folder. These may be helpful if you run into any issues.
 
 ## Methodology
 Broadly speaking, `PitchPredict` estimates the most likely outcomes for a pitch in the given context by doing the following:

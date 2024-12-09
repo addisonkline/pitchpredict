@@ -4,7 +4,7 @@ Created by Addison Kline (akline@baseball-analytica.com)
 """
 import pandas as pd
 from collections import Counter
-from src.logger_config import get_logger
+from pitchpredict.logger_config import get_logger
 
 logger = get_logger(__name__)
 

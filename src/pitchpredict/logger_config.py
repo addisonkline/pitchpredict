@@ -20,7 +20,7 @@ logging.basicConfig(
         logging.FileHandler(log_filepath),
     ]
 )
-"""
 
 def get_logger(name):
     return logging.getLogger(name)
+"""

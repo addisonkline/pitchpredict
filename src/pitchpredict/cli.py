@@ -7,7 +7,7 @@ from typing import Any
 import pandas as pd
 import datetime
 # internal imports
-from pitchpredict.logger_config import get_logger
+# from pitchpredict.logger_config import get_logger
 from pitchpredict.models.pitchpredict_config import PitchPredictConfig
 from pitchpredict.player_lookup import get_player_id_by_name
 from pitchpredict.fetch_pitch_data import (

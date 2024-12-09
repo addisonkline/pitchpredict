@@ -7,7 +7,7 @@ from pybaseball import statcast_pitcher
 import pandas as pd
 import datetime
 # internal imports
-from pitchpredict.logger_config import get_logger
+# from pitchpredict.logger_config import get_logger
 from pitchpredict.models.pitch import Pitch
 from pitchpredict.models.pitchpredict_config import PitchPredictConfig
 from pitchpredict.similarity import calculate_similarity
